@@ -1,5 +1,7 @@
+import plugins.Plugins.ANDROID_APPLICATION
+
 plugins {
-    id 'com.android.application'
+    id(ANDROID_APPLICATION)
     id 'kotlin-android'
 }
 

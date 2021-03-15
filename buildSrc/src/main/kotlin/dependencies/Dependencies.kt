@@ -67,12 +67,12 @@ object Gradle {
 object Hilt {
     const val ANDROID = "com.google.dagger:hilt-android:${HILT_VERSION}"
     const val COMPILER = "com.google.dagger:hilt-compiler:${HILT_VERSION}"
-    const val GRADLE = "com.google.dagger:hilt-android-gradle-plugin:${HILT_VERSION}"
+    const val HILT_GRADLE = "com.google.dagger:hilt-android-gradle-plugin:${HILT_VERSION}"
 }
 
 object Kotlin {
     const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib:${KOTLIN_VERSION}"
-    const val GRADLE = "org.jetbrains.kotlin:kotlin-gradle-plugin:${KOTLIN_VERSION}"
+    const val KOTLIN_GRADLE = "org.jetbrains.kotlin:kotlin-gradle-plugin:${KOTLIN_VERSION}"
 }
 
 object Lifecycle {
@@ -157,4 +157,9 @@ val dependencies = arrayListOf<String>().apply {
     add(Room.RUNTIME)
     add(Timber.TIMBER)
     add(ViewPager2.VIEWPAGER2)
+}
+
+val kaptDependencies = arrayListOf<String>().apply {
+    add(Hilt.COMPILER)
+    add(Room.COMPILER)
 }
