@@ -1,4 +1,4 @@
-package dependencies
+package dependencyLibs
 
 import dependencyVersions.DependencyVersions.ROOM_VERSION
 import dependencyVersions.TestDependencyVersions.JUNIT_VERSION
@@ -12,9 +12,11 @@ import dependencyVersions.TestDependencyVersions.JUNIT_VERSION
 object TestDependencies {
     const val JUNIT = "junit:junit:${JUNIT_VERSION}"
     const val ROOM_TESTING = "androidx.room:room-testing:${ROOM_VERSION}"
+
+    val testLibraries = arrayListOf<String>().apply {
+        add(JUNIT)
+        add(ROOM_TESTING)
+    }
 }
 
-val testLibraries = arrayListOf<String>().apply {
-    add(TestDependencies.JUNIT)
-    add(TestDependencies.ROOM_TESTING)
-}
+

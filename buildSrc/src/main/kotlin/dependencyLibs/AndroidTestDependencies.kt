@@ -1,4 +1,4 @@
-package dependencies
+package dependencyLibs
 
 import dependencyVersions.AndroidTestDependencyVersions.ESPRESSO_VERSION
 import dependencyVersions.AndroidTestDependencyVersions.TEST_EXT_VERSION
@@ -14,10 +14,12 @@ object AndroidTestDependencies {
     const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:${ESPRESSO_VERSION}"
     const val NAV_TESTING = "androidx.navigation:navigation-testing:${NAV_VERSION}"
     const val TEST_EXT_JUNIT = "androidx.test.ext:junit:${TEST_EXT_VERSION}"
+
+    val androidTestLibraries = arrayListOf<String>().apply {
+        add(ESPRESSO_CORE)
+        add(NAV_TESTING)
+        add(TEST_EXT_JUNIT)
+    }
 }
 
-val androidTestLibraries = arrayListOf<String>().apply {
-    add(AndroidTestDependencies.ESPRESSO_CORE)
-    add(AndroidTestDependencies.NAV_TESTING)
-    add(AndroidTestDependencies.TEST_EXT_JUNIT)
-}
+

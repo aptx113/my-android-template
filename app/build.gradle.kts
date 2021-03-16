@@ -1,47 +1,47 @@
-import plugins.Plugins.ANDROID_APPLICATION
+import dependencyLibs.AndroidTestDependencies.androidTestLibraries
+import dependencyLibs.Libraries.kaptLibraries
+import dependencyLibs.Libraries.libraries
+import dependencyLibs.TestDependencies.testLibraries
+import ext.androidTestImplementation
+import ext.implementation
+import ext.kapt
+import ext.testImplementation
 
 plugins {
-    id(ANDROID_APPLICATION)
-    id 'kotlin-android'
+    id(plugins.Plugins.ANDROID_APPLICATION)
+    kotlin(plugins.Plugins.KOTLIN_ANDROID)
+    kotlin(plugins.Plugins.KOTLIN_KAPT)
+    id(plugins.Plugins.HILT_ANDROID)
+    id(plugins.Plugins.NAV_SAFEARGS)
 }
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.0"
+    compileSdkVersion(AndroidConfig.COMPILE_SDK_VERSION)
+    buildToolsVersion(AndroidConfig.BUILD_TOOLS_VERSION)
 
     defaultConfig {
-        applicationId "com.danteyu.studio.my_android_template"
-        minSdkVersion 24
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        applicationId = AndroidConfig.APPLICATION_ID
+        minSdkVersion(AndroidConfig.MIN_SDK_VERSION)
+        targetSdkVersion(AndroidConfig.TARGET_SDK_VERSION)
+        versionCode = AndroidConfig.VERSION_CODE
+        versionName = AndroidConfig.VERSION_NAME
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = AndroidConfig.TEST_INSTRUMENTATION_RUNNER
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
+    buildFeatures {
+        dataBinding = BuildFeatures.DATA_BINDING_ENABLED
     }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
-
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.3.2'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation(libraries)
+    kapt(kaptLibraries)
+    testImplementation(testLibraries)
+    androidTestImplementation(androidTestLibraries)
 }

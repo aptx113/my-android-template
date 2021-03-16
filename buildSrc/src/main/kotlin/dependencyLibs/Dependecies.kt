@@ -1,4 +1,4 @@
-package dependencies
+package dependencyLibs
 
 import dependencyVersions.DependencyVersions.ACTIVITY_VERSION
 import dependencyVersions.DependencyVersions.APPCOMPAT_VERSION
@@ -60,7 +60,7 @@ object Fragment {
     const val FRAG_KTX = "androidx.fragment:fragment-ktx:${FRAG_VERSION}"
 }
 
-object Gradle {
+object AndroidGradle {
     const val GRADLE = "com.android.tools.build:gradle:${GRADLE_VERSION}"
 }
 
@@ -93,7 +93,7 @@ object Moshi {
 
 object Navigation {
     const val FRAG = "androidx.navigation:navigation-fragment:${NAV_VERSION}"
-    const val UI = "androidx.navigation:navigation-ui${NAV_VERSION}"
+    const val UI = "androidx.navigation:navigation-ui:${NAV_VERSION}"
     const val SAFE_ARGS_GRADLE =
         "androidx.navigation:navigation-safe-args-gradle-plugin:${NAV_VERSION}"
 }
@@ -129,37 +129,39 @@ object ViewPager2 {
     const val VIEWPAGER2 = "androidx.viewpager2:viewpager2:${VIEWPAGER2_VERSION}"
 }
 
-val dependencies = arrayListOf<String>().apply {
-    add(Activity.ACTIVITY_KTX)
-    add(AppCompat.APPCOMPAT)
-    add(Coil.COIL)
-    add(ConstraintLayout.CONSTRAINT_LAYOUT)
-    add(Core.CORE_KTX)
-    add(Coroutines.ANDROID)
-    add(Coroutines.CORE)
-    add(Fragment.FRAG_KTX)
-    add(Hilt.ANDROID)
-    add(Kotlin.stdlib)
-    add(Lifecycle.LIVEDATE)
-    add(Lifecycle.VIEWMODEL)
-    add(Lifecycle.VIEWMODEL_SAVEDSTATE)
-    add(Material.MATERIAL)
-    add(Moshi.CODEGEN)
-    add(Moshi.KOTLIN)
-    add(Navigation.FRAG)
-    add(Navigation.UI)
-    add(OkHttp3.LOGGING_INTERCEPTOR)
-    add(Paging.PAGING3)
-    add(RecyclerView.RECYCLERVIEW)
-    add(Retrofit2.CONVERTER_MOSHI)
-    add(Retrofit2.RETROFIT)
-    add(Room.KTX)
-    add(Room.RUNTIME)
-    add(Timber.TIMBER)
-    add(ViewPager2.VIEWPAGER2)
-}
+object Libraries {
+    val libraries = arrayListOf<String>().apply {
+        add(Activity.ACTIVITY_KTX)
+        add(AppCompat.APPCOMPAT)
+        add(Coil.COIL)
+        add(ConstraintLayout.CONSTRAINT_LAYOUT)
+        add(Core.CORE_KTX)
+        add(Coroutines.ANDROID)
+        add(Coroutines.CORE)
+        add(Fragment.FRAG_KTX)
+        add(Hilt.ANDROID)
+        add(Kotlin.stdlib)
+        add(Lifecycle.LIVEDATE)
+        add(Lifecycle.VIEWMODEL)
+        add(Lifecycle.VIEWMODEL_SAVEDSTATE)
+        add(Material.MATERIAL)
+        add(Moshi.CODEGEN)
+        add(Moshi.KOTLIN)
+        add(Navigation.FRAG)
+        add(Navigation.UI)
+        add(OkHttp3.LOGGING_INTERCEPTOR)
+        add(Paging.PAGING3)
+        add(RecyclerView.RECYCLERVIEW)
+        add(Retrofit2.CONVERTER_MOSHI)
+        add(Retrofit2.RETROFIT)
+        add(Room.KTX)
+        add(Room.RUNTIME)
+        add(Timber.TIMBER)
+        add(ViewPager2.VIEWPAGER2)
+    }
 
-val kaptDependencies = arrayListOf<String>().apply {
-    add(Hilt.COMPILER)
-    add(Room.COMPILER)
+    val kaptLibraries = arrayListOf<String>().apply {
+        add(Hilt.COMPILER)
+        add(Room.COMPILER)
+    }
 }
