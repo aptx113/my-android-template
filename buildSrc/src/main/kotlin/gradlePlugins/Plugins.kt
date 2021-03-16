@@ -1,4 +1,4 @@
-package plugins
+package gradlePlugins
 
 /**
  * Created by George Yu on 2021/3/15.
