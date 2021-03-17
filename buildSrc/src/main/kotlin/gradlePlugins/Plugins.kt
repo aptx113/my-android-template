@@ -17,4 +17,6 @@ object Plugins {
     const val KOTLIN_ANDROID = "android"
     const val KOTLIN_KAPT = "kapt"
     const val NAV_SAFEARGS = "androidx.navigation.safeargs.kotlin"
+
+    const val GRADLE_VERSIONS_PLUGIN = "com.github.ben-manes.versions"
 }
