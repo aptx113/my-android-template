@@ -2,10 +2,10 @@ import dependencyLibs.AndroidTestDependencies.androidTestLibraries
 import dependencyLibs.Libraries.kaptLibraries
 import dependencyLibs.Libraries.libraries
 import dependencyLibs.TestDependencies.testLibraries
-import ext.androidTestImplementation
-import ext.implementation
-import ext.kapt
-import ext.testImplementation
+import ext.addAndroidTestDependencies
+import ext.addDependencies
+import ext.addKapt
+import ext.addTestDependencies
 
 plugins {
     id(gradlePlugins.Plugins.ANDROID_APPLICATION)
@@ -23,6 +23,7 @@ android {
         applicationId = AndroidConfig.APPLICATION_ID
         minSdkVersion(AndroidConfig.MIN_SDK_VERSION)
         targetSdkVersion(AndroidConfig.TARGET_SDK_VERSION)
+
         versionCode = AndroidConfig.VERSION_CODE
         versionName = AndroidConfig.VERSION_NAME
 
@@ -93,8 +94,8 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation(libraries)
-    kapt(kaptLibraries)
-    testImplementation(testLibraries)
-    androidTestImplementation(androidTestLibraries)
+    addDependencies(libraries)
+    addKapt(kaptLibraries)
+    addTestDependencies(testLibraries)
+    addAndroidTestDependencies(androidTestLibraries)
 }
