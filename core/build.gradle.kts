@@ -11,7 +11,6 @@ android {
     buildToolsVersion(AndroidConfig.BUILD_TOOLS_VERSION)
 
     defaultConfig {
-        applicationId = AndroidConfig.APPLICATION_ID
         minSdkVersion(AndroidConfig.MIN_SDK_VERSION)
         targetSdkVersion(AndroidConfig.TARGET_SDK_VERSION)
 
