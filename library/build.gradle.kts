@@ -1,8 +1,8 @@
 import dependencyLibs.TestDependencies.JUNIT
 
 plugins {
-    id (gradlePlugins.Plugins.JAVA_LIBRARY)
-    id (gradlePlugins.Plugins.KOTLIN)
+    id(gradlePlugins.Plugins.JAVA_LIBRARY)
+    id(gradlePlugins.Plugins.KOTLIN)
 }
 
 java {

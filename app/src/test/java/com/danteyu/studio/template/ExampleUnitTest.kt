@@ -1,8 +1,7 @@
-package com.danteyu.studio.my_android_template
+package com.danteyu.studio.template
 
+import org.junit.Assert.assertEquals
 import org.junit.Test
-
-import org.junit.Assert.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).
