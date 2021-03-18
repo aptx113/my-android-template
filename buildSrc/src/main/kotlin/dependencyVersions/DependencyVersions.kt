@@ -1,8 +1,6 @@
 package dependencyVersions
 
-/**
- * Created by George Yu on 2021/3/10.
- */
+
 object DependencyVersions {
     const val ACTIVITY_VERSION = "1.2.1"
     const val APPCOMPAT_VERSION = "1.2.0"
@@ -11,7 +9,6 @@ object DependencyVersions {
     const val CORE_VERSION = "1.3.2"
     const val COROUTINES_VERSION = "1.4.3"
     const val FRAG_VERSION = "1.3.1"
-    const val GRADLE_VERSION = "4.1.2"
     const val HILT_VERSION = "2.33-beta"
     const val KOTLIN_VERSION = "1.4.31"
     const val LIFECYCLE_VERSION = "2.3.0"

@@ -51,23 +51,10 @@ android {
     }
 
     flavorDimensions(BuildProductDimensions.ENVIRONMENT)
-
     productFlavors {
-        create("dev") {
-            applicationIdSuffix = ".dev"
-            versionNameSuffix = "-dev"
-            dimension = BuildProductDimensions.ENVIRONMENT
-        }
-
-        create("qa") {
-            applicationIdSuffix = ".qa"
-            versionNameSuffix = "-qa"
-            dimension = BuildProductDimensions.ENVIRONMENT
-        }
-
-        create("prod") {
-            dimension = BuildProductDimensions.ENVIRONMENT
-        }
+        ProductFlavorDevelop.appCreate(this)
+        ProductFlavorQA.appCreate(this)
+        ProductFlavorProduction.appCreate(this)
     }
 
     compileOptions {
@@ -77,6 +64,10 @@ android {
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    lintOptions {
+        lintConfig = rootProject.file(".lint/config.xml")
     }
 
     sourceSets {

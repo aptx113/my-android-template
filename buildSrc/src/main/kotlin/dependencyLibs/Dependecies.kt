@@ -7,7 +7,6 @@ import dependencyVersions.DependencyVersions.CONSTRAINTLAYOUT_VERSION
 import dependencyVersions.DependencyVersions.CORE_VERSION
 import dependencyVersions.DependencyVersions.COROUTINES_VERSION
 import dependencyVersions.DependencyVersions.FRAG_VERSION
-import dependencyVersions.DependencyVersions.GRADLE_VERSION
 import dependencyVersions.DependencyVersions.HILT_VERSION
 import dependencyVersions.DependencyVersions.KOTLIN_VERSION
 import dependencyVersions.DependencyVersions.LIFECYCLE_VERSION
@@ -23,8 +22,6 @@ import dependencyVersions.DependencyVersions.TIMBER_VERSION
 import dependencyVersions.DependencyVersions.VIEWPAGER2_VERSION
 
 /**
- * Created by George Yu on 2021/3/10.
- *
  * All the Project dependencies are declared here.
  * These can be used across the Project
  */
@@ -58,10 +55,6 @@ object Coroutines {
 
 object Fragment {
     const val FRAG_KTX = "androidx.fragment:fragment-ktx:${FRAG_VERSION}"
-}
-
-object AndroidGradle {
-    const val GRADLE = "com.android.tools.build:gradle:${GRADLE_VERSION}"
 }
 
 object Hilt {

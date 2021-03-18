@@ -29,10 +29,386 @@
 
 /* ktlint-disable */
 
-package gradle.kotlin.dsl.plugins._5e1d63a0c544e6d73e601ddf3a16964f
+package gradle.kotlin.dsl.plugins._9c53751a10a2677898b017092f82a7a1
 
 import org.gradle.plugin.use.PluginDependenciesSpec
 import org.gradle.plugin.use.PluginDependencySpec
+
+
+/**
+ * The `android` plugin implemented by [com.android.build.gradle.AppPlugin].
+ */
+internal
+val `PluginDependenciesSpec`.`android`: PluginDependencySpec
+    get() = this.id("android")
+
+
+/**
+ * The `android-library` plugin implemented by [com.android.build.gradle.LibraryPlugin].
+ */
+internal
+val `PluginDependenciesSpec`.`android-library`: PluginDependencySpec
+    get() = this.id("android-library")
+
+
+/**
+ * The `android-reporting` plugin implemented by [com.android.build.gradle.ReportingPlugin].
+ */
+internal
+val `PluginDependenciesSpec`.`android-reporting`: PluginDependencySpec
+    get() = this.id("android-reporting")
+
+
+/**
+ * The `com` plugin group.
+ */
+@org.gradle.api.Generated
+internal
+class `ComPluginGroup`(internal val plugins: PluginDependenciesSpec)
+
+
+/**
+ * Plugin ids starting with `com`.
+ */
+internal
+val `PluginDependenciesSpec`.`com`: `ComPluginGroup`
+    get() = `ComPluginGroup`(this)
+
+
+/**
+ * The `com.android` plugin group.
+ */
+@org.gradle.api.Generated
+internal
+class `ComAndroidPluginGroup`(internal val plugins: PluginDependenciesSpec)
+
+
+/**
+ * Plugin ids starting with `com.android`.
+ */
+internal
+val `ComPluginGroup`.`android`: `ComAndroidPluginGroup`
+    get() = `ComAndroidPluginGroup`(plugins)
+
+
+/**
+ * The `com.android.application` plugin implemented by [com.android.build.gradle.AppPlugin].
+ */
+internal
+val `ComAndroidPluginGroup`.`application`: PluginDependencySpec
+    get() = plugins.id("com.android.application")
+
+
+/**
+ * The `com.android.asset-pack` plugin implemented by [com.android.build.gradle.AssetPackPlugin].
+ */
+internal
+val `ComAndroidPluginGroup`.`asset-pack`: PluginDependencySpec
+    get() = plugins.id("com.android.asset-pack")
+
+
+/**
+ * The `com.android.base` plugin implemented by [com.android.build.gradle.api.AndroidBasePlugin].
+ */
+internal
+val `ComAndroidPluginGroup`.`base`: PluginDependencySpec
+    get() = plugins.id("com.android.base")
+
+
+/**
+ * The `com.android.debug` plugin group.
+ */
+@org.gradle.api.Generated
+internal
+class `ComAndroidDebugPluginGroup`(internal val plugins: PluginDependenciesSpec)
+
+
+/**
+ * Plugin ids starting with `com.android.debug`.
+ */
+internal
+val `ComAndroidPluginGroup`.`debug`: `ComAndroidDebugPluginGroup`
+    get() = `ComAndroidDebugPluginGroup`(plugins)
+
+
+/**
+ * The `com.android.debug.structure` plugin implemented by [com.android.build.gradle.internal.plugins.StructurePlugin].
+ */
+internal
+val `ComAndroidDebugPluginGroup`.`structure`: PluginDependencySpec
+    get() = plugins.id("com.android.debug.structure")
+
+
+/**
+ * The `com.android.dynamic-feature` plugin implemented by [com.android.build.gradle.DynamicFeaturePlugin].
+ */
+internal
+val `ComAndroidPluginGroup`.`dynamic-feature`: PluginDependencySpec
+    get() = plugins.id("com.android.dynamic-feature")
+
+
+/**
+ * The `com.android.internal` plugin group.
+ */
+@org.gradle.api.Generated
+internal
+class `ComAndroidInternalPluginGroup`(internal val plugins: PluginDependenciesSpec)
+
+
+/**
+ * Plugin ids starting with `com.android.internal`.
+ */
+internal
+val `ComAndroidPluginGroup`.`internal`: `ComAndroidInternalPluginGroup`
+    get() = `ComAndroidInternalPluginGroup`(plugins)
+
+
+/**
+ * The `com.android.internal.application` plugin implemented by [com.android.build.gradle.internal.plugins.AppPlugin].
+ */
+internal
+val `ComAndroidInternalPluginGroup`.`application`: PluginDependencySpec
+    get() = plugins.id("com.android.internal.application")
+
+
+/**
+ * The `com.android.internal.asset-pack` plugin implemented by [com.android.build.gradle.internal.plugins.AssetPackPlugin].
+ */
+internal
+val `ComAndroidInternalPluginGroup`.`asset-pack`: PluginDependencySpec
+    get() = plugins.id("com.android.internal.asset-pack")
+
+
+/**
+ * The `com.android.internal.dynamic-feature` plugin implemented by [com.android.build.gradle.internal.plugins.DynamicFeaturePlugin].
+ */
+internal
+val `ComAndroidInternalPluginGroup`.`dynamic-feature`: PluginDependencySpec
+    get() = plugins.id("com.android.internal.dynamic-feature")
+
+
+/**
+ * The `com.android.internal.library` plugin implemented by [com.android.build.gradle.internal.plugins.LibraryPlugin].
+ */
+internal
+val `ComAndroidInternalPluginGroup`.`library`: PluginDependencySpec
+    get() = plugins.id("com.android.internal.library")
+
+
+/**
+ * The `com.android.internal.reporting` plugin implemented by [com.android.build.gradle.internal.plugins.ReportingPlugin].
+ */
+internal
+val `ComAndroidInternalPluginGroup`.`reporting`: PluginDependencySpec
+    get() = plugins.id("com.android.internal.reporting")
+
+
+/**
+ * The `com.android.internal.test` plugin implemented by [com.android.build.gradle.internal.plugins.TestPlugin].
+ */
+internal
+val `ComAndroidInternalPluginGroup`.`test`: PluginDependencySpec
+    get() = plugins.id("com.android.internal.test")
+
+
+/**
+ * The `com.android.internal.version-check` plugin implemented by [com.android.build.gradle.internal.plugins.VersionCheckPlugin].
+ */
+internal
+val `ComAndroidInternalPluginGroup`.`version-check`: PluginDependencySpec
+    get() = plugins.id("com.android.internal.version-check")
+
+
+/**
+ * The `com.android.library` plugin implemented by [com.android.build.gradle.LibraryPlugin].
+ */
+internal
+val `ComAndroidPluginGroup`.`library`: PluginDependencySpec
+    get() = plugins.id("com.android.library")
+
+
+/**
+ * The `com.android.lint` plugin implemented by [com.android.build.gradle.LintPlugin].
+ */
+internal
+val `ComAndroidPluginGroup`.`lint`: PluginDependencySpec
+    get() = plugins.id("com.android.lint")
+
+
+/**
+ * The `com.android.reporting` plugin implemented by [com.android.build.gradle.ReportingPlugin].
+ */
+internal
+val `ComAndroidPluginGroup`.`reporting`: PluginDependencySpec
+    get() = plugins.id("com.android.reporting")
+
+
+/**
+ * The `com.android.test` plugin implemented by [com.android.build.gradle.TestPlugin].
+ */
+internal
+val `ComAndroidPluginGroup`.`test`: PluginDependencySpec
+    get() = plugins.id("com.android.test")
+
+
+/**
+ * The `de` plugin group.
+ */
+@org.gradle.api.Generated
+internal
+class `DePluginGroup`(internal val plugins: PluginDependenciesSpec)
+
+
+/**
+ * Plugin ids starting with `de`.
+ */
+internal
+val `PluginDependenciesSpec`.`de`: `DePluginGroup`
+    get() = `DePluginGroup`(this)
+
+
+/**
+ * The `de.undercouch` plugin group.
+ */
+@org.gradle.api.Generated
+internal
+class `DeUndercouchPluginGroup`(internal val plugins: PluginDependenciesSpec)
+
+
+/**
+ * Plugin ids starting with `de.undercouch`.
+ */
+internal
+val `DePluginGroup`.`undercouch`: `DeUndercouchPluginGroup`
+    get() = `DeUndercouchPluginGroup`(plugins)
+
+
+/**
+ * The `de.undercouch.download` plugin implemented by [de.undercouch.gradle.tasks.download.DownloadTaskPlugin].
+ */
+internal
+val `DeUndercouchPluginGroup`.`download`: PluginDependencySpec
+    get() = plugins.id("de.undercouch.download")
+
+
+/**
+ * The `kotlin` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper].
+ */
+internal
+val `PluginDependenciesSpec`.`kotlin`: PluginDependencySpec
+    get() = this.id("kotlin")
+
+
+/**
+ * The `kotlin-android` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.KotlinAndroidPluginWrapper].
+ */
+internal
+val `PluginDependenciesSpec`.`kotlin-android`: PluginDependencySpec
+    get() = this.id("kotlin-android")
+
+
+/**
+ * The `kotlin-android-extensions` plugin implemented by [org.jetbrains.kotlin.gradle.internal.AndroidExtensionsSubpluginIndicator].
+ */
+internal
+val `PluginDependenciesSpec`.`kotlin-android-extensions`: PluginDependencySpec
+    get() = this.id("kotlin-android-extensions")
+
+
+/**
+ * The `kotlin-dce-js` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.KotlinJsDcePlugin].
+ */
+internal
+val `PluginDependenciesSpec`.`kotlin-dce-js`: PluginDependencySpec
+    get() = this.id("kotlin-dce-js")
+
+
+/**
+ * The `kotlin-kapt` plugin implemented by [org.jetbrains.kotlin.gradle.internal.Kapt3GradleSubplugin].
+ */
+internal
+val `PluginDependenciesSpec`.`kotlin-kapt`: PluginDependencySpec
+    get() = this.id("kotlin-kapt")
+
+
+/**
+ * The `kotlin-multiplatform` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.KotlinMultiplatformPluginWrapper].
+ */
+internal
+val `PluginDependenciesSpec`.`kotlin-multiplatform`: PluginDependencySpec
+    get() = this.id("kotlin-multiplatform")
+
+
+/**
+ * The `kotlin-native-cocoapods` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.cocoapods.KotlinCocoapodsPlugin].
+ */
+internal
+val `PluginDependenciesSpec`.`kotlin-native-cocoapods`: PluginDependencySpec
+    get() = this.id("kotlin-native-cocoapods")
+
+
+/**
+ * The `kotlin-native-performance` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.performance.KotlinPerformancePlugin].
+ */
+internal
+val `PluginDependenciesSpec`.`kotlin-native-performance`: PluginDependencySpec
+    get() = this.id("kotlin-native-performance")
+
+
+/**
+ * The `kotlin-parcelize` plugin implemented by [org.jetbrains.kotlin.gradle.internal.ParcelizeSubplugin].
+ */
+internal
+val `PluginDependenciesSpec`.`kotlin-parcelize`: PluginDependencySpec
+    get() = this.id("kotlin-parcelize")
+
+
+/**
+ * The `kotlin-platform-android` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.KotlinPlatformAndroidPlugin].
+ */
+internal
+val `PluginDependenciesSpec`.`kotlin-platform-android`: PluginDependencySpec
+    get() = this.id("kotlin-platform-android")
+
+
+/**
+ * The `kotlin-platform-common` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.KotlinPlatformCommonPlugin].
+ */
+internal
+val `PluginDependenciesSpec`.`kotlin-platform-common`: PluginDependencySpec
+    get() = this.id("kotlin-platform-common")
+
+
+/**
+ * The `kotlin-platform-js` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.KotlinPlatformJsPlugin].
+ */
+internal
+val `PluginDependenciesSpec`.`kotlin-platform-js`: PluginDependencySpec
+    get() = this.id("kotlin-platform-js")
+
+
+/**
+ * The `kotlin-platform-jvm` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.KotlinPlatformJvmPlugin].
+ */
+internal
+val `PluginDependenciesSpec`.`kotlin-platform-jvm`: PluginDependencySpec
+    get() = this.id("kotlin-platform-jvm")
+
+
+/**
+ * The `kotlin-scripting` plugin implemented by [org.jetbrains.kotlin.gradle.scripting.internal.ScriptingGradleSubplugin].
+ */
+internal
+val `PluginDependenciesSpec`.`kotlin-scripting`: PluginDependencySpec
+    get() = this.id("kotlin-scripting")
+
+
+/**
+ * The `kotlin2js` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.Kotlin2JsPluginWrapper].
+ */
+internal
+val `PluginDependenciesSpec`.`kotlin2js`: PluginDependencySpec
+    get() = this.id("kotlin2js")
 
 
 /**
@@ -785,3 +1161,187 @@ val `OrgGradlePluginGroup`.`xcode`: PluginDependencySpec
 internal
 val `OrgGradlePluginGroup`.`xctest`: PluginDependencySpec
     get() = plugins.id("org.gradle.xctest")
+
+
+/**
+ * The `org.jetbrains` plugin group.
+ */
+@org.gradle.api.Generated
+internal
+class `OrgJetbrainsPluginGroup`(internal val plugins: PluginDependenciesSpec)
+
+
+/**
+ * Plugin ids starting with `org.jetbrains`.
+ */
+internal
+val `OrgPluginGroup`.`jetbrains`: `OrgJetbrainsPluginGroup`
+    get() = `OrgJetbrainsPluginGroup`(plugins)
+
+
+/**
+ * The `org.jetbrains.kotlin` plugin group.
+ */
+@org.gradle.api.Generated
+internal
+class `OrgJetbrainsKotlinPluginGroup`(internal val plugins: PluginDependenciesSpec)
+
+
+/**
+ * Plugin ids starting with `org.jetbrains.kotlin`.
+ */
+internal
+val `OrgJetbrainsPluginGroup`.`kotlin`: `OrgJetbrainsKotlinPluginGroup`
+    get() = `OrgJetbrainsKotlinPluginGroup`(plugins)
+
+
+/**
+ * The `org.jetbrains.kotlin.android` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.KotlinAndroidPluginWrapper].
+ */
+internal
+val `OrgJetbrainsKotlinPluginGroup`.`android`: PluginDependencySpec
+    get() = plugins.id("org.jetbrains.kotlin.android")
+
+
+/**
+ * The `org.jetbrains.kotlin.js` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.KotlinJsPluginWrapper].
+ */
+internal
+val `OrgJetbrainsKotlinPluginGroup`.`js`: PluginDependencySpec
+    get() = plugins.id("org.jetbrains.kotlin.js")
+
+
+/**
+ * The `org.jetbrains.kotlin.jvm` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.KotlinPluginWrapper].
+ */
+internal
+val `OrgJetbrainsKotlinPluginGroup`.`jvm`: PluginDependencySpec
+    get() = plugins.id("org.jetbrains.kotlin.jvm")
+
+
+/**
+ * The `org.jetbrains.kotlin.kapt` plugin implemented by [org.jetbrains.kotlin.gradle.internal.Kapt3GradleSubplugin].
+ */
+internal
+val `OrgJetbrainsKotlinPluginGroup`.`kapt`: PluginDependencySpec
+    get() = plugins.id("org.jetbrains.kotlin.kapt")
+
+
+/**
+ * The `org.jetbrains.kotlin.multiplatform` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.KotlinMultiplatformPluginWrapper].
+ */
+internal
+val `OrgJetbrainsKotlinPluginGroup`.`multiplatform`: PluginDependencySpec
+    get() = plugins.id("org.jetbrains.kotlin.multiplatform")
+
+
+/**
+ * The `org.jetbrains.kotlin.native` plugin group.
+ */
+@org.gradle.api.Generated
+internal
+class `OrgJetbrainsKotlinNativePluginGroup`(internal val plugins: PluginDependenciesSpec)
+
+
+/**
+ * Plugin ids starting with `org.jetbrains.kotlin.native`.
+ */
+internal
+val `OrgJetbrainsKotlinPluginGroup`.`native`: `OrgJetbrainsKotlinNativePluginGroup`
+    get() = `OrgJetbrainsKotlinNativePluginGroup`(plugins)
+
+
+/**
+ * The `org.jetbrains.kotlin.native.cocoapods` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.cocoapods.KotlinCocoapodsPlugin].
+ */
+internal
+val `OrgJetbrainsKotlinNativePluginGroup`.`cocoapods`: PluginDependencySpec
+    get() = plugins.id("org.jetbrains.kotlin.native.cocoapods")
+
+
+/**
+ * The `org.jetbrains.kotlin.native.performance` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.performance.KotlinPerformancePlugin].
+ */
+internal
+val `OrgJetbrainsKotlinNativePluginGroup`.`performance`: PluginDependencySpec
+    get() = plugins.id("org.jetbrains.kotlin.native.performance")
+
+
+/**
+ * The `org.jetbrains.kotlin.platform` plugin group.
+ */
+@org.gradle.api.Generated
+internal
+class `OrgJetbrainsKotlinPlatformPluginGroup`(internal val plugins: PluginDependenciesSpec)
+
+
+/**
+ * Plugin ids starting with `org.jetbrains.kotlin.platform`.
+ */
+internal
+val `OrgJetbrainsKotlinPluginGroup`.`platform`: `OrgJetbrainsKotlinPlatformPluginGroup`
+    get() = `OrgJetbrainsKotlinPlatformPluginGroup`(plugins)
+
+
+/**
+ * The `org.jetbrains.kotlin.platform.android` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.KotlinPlatformAndroidPlugin].
+ */
+internal
+val `OrgJetbrainsKotlinPlatformPluginGroup`.`android`: PluginDependencySpec
+    get() = plugins.id("org.jetbrains.kotlin.platform.android")
+
+
+/**
+ * The `org.jetbrains.kotlin.platform.common` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.KotlinPlatformCommonPlugin].
+ */
+internal
+val `OrgJetbrainsKotlinPlatformPluginGroup`.`common`: PluginDependencySpec
+    get() = plugins.id("org.jetbrains.kotlin.platform.common")
+
+
+/**
+ * The `org.jetbrains.kotlin.platform.js` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.KotlinPlatformJsPlugin].
+ */
+internal
+val `OrgJetbrainsKotlinPlatformPluginGroup`.`js`: PluginDependencySpec
+    get() = plugins.id("org.jetbrains.kotlin.platform.js")
+
+
+/**
+ * The `org.jetbrains.kotlin.platform.jvm` plugin implemented by [org.jetbrains.kotlin.gradle.plugin.KotlinPlatformJvmPlugin].
+ */
+internal
+val `OrgJetbrainsKotlinPlatformPluginGroup`.`jvm`: PluginDependencySpec
+    get() = plugins.id("org.jetbrains.kotlin.platform.jvm")
+
+
+/**
+ * The `org.jetbrains.kotlin.plugin` plugin group.
+ */
+@org.gradle.api.Generated
+internal
+class `OrgJetbrainsKotlinPluginPluginGroup`(internal val plugins: PluginDependenciesSpec)
+
+
+/**
+ * Plugin ids starting with `org.jetbrains.kotlin.plugin`.
+ */
+internal
+val `OrgJetbrainsKotlinPluginGroup`.`plugin`: `OrgJetbrainsKotlinPluginPluginGroup`
+    get() = `OrgJetbrainsKotlinPluginPluginGroup`(plugins)
+
+
+/**
+ * The `org.jetbrains.kotlin.plugin.parcelize` plugin implemented by [org.jetbrains.kotlin.gradle.internal.ParcelizeSubplugin].
+ */
+internal
+val `OrgJetbrainsKotlinPluginPluginGroup`.`parcelize`: PluginDependencySpec
+    get() = plugins.id("org.jetbrains.kotlin.plugin.parcelize")
+
+
+/**
+ * The `org.jetbrains.kotlin.plugin.scripting` plugin implemented by [org.jetbrains.kotlin.gradle.scripting.internal.ScriptingGradleSubplugin].
+ */
+internal
+val `OrgJetbrainsKotlinPluginPluginGroup`.`scripting`: PluginDependencySpec
+    get() = plugins.id("org.jetbrains.kotlin.plugin.scripting")
