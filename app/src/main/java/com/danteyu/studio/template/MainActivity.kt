@@ -1,7 +1,7 @@
-package com.danteyu.studio.my_android_template
+package com.danteyu.studio.template
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
