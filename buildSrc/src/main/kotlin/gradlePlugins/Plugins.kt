@@ -20,4 +20,5 @@ object Plugins {
 
     const val GRADLE_VERSIONS_PLUGIN = "com.github.ben-manes.versions"
     const val KTLINT = "org.jlleitschuh.gradle.ktlint"
+    const val DETEKT = "io.gitlab.arturbosch.detekt"
 }

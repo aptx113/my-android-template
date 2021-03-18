@@ -19,8 +19,9 @@ buildscript {
 }
 
 plugins {
-    id(gradlePlugins.Plugins.GRADLE_VERSIONS_PLUGIN) version gradlePlugins.PluginVersions.GRADLE_VER_PLUGIN_VERSION
-    id(gradlePlugins.Plugins.KTLINT) version gradlePlugins.PluginVersions.KTLINT_VERSION
+    id(gradlePlugins.Plugins.GRADLE_VERSIONS_PLUGIN) version PluginVersions.GRADLE_VER_PLUGIN_VERSION
+    id(gradlePlugins.Plugins.DETEKT) version PluginVersions.DETEKT_VERSION
+    id(gradlePlugins.Plugins.KTLINT) version PluginVersions.KTLINT_VERSION
 }
 
 allprojects {
@@ -29,7 +30,18 @@ allprojects {
 
 subprojects {
     apply {
+        plugin(gradlePlugins.Plugins.DETEKT)
         plugin(gradlePlugins.Plugins.KTLINT)
+    }
+
+    detekt {
+        config = rootProject.files("config/detekt/detekt.yml")
+        reports {
+            html {
+                enabled = true
+                destination = file("build/reports/detekt.html")
+            }
+        }
     }
 
     ktlint {
