@@ -19,11 +19,43 @@ buildscript {
 }
 
 plugins {
-    id(gradlePlugins.Plugins.GRADLE_VERSIONS_PLUGIN) version gradlePlugins.PluginVersions.GRADLE_VER_PLUGIN_VERSION
+    id(gradlePlugins.Plugins.GRADLE_VERSIONS_PLUGIN) version PluginVersions.GRADLE_VER_PLUGIN_VERSION
+    id(gradlePlugins.Plugins.DETEKT) version PluginVersions.DETEKT_VERSION
+    id(gradlePlugins.Plugins.KTLINT) version PluginVersions.KTLINT_VERSION
 }
 
 allprojects {
     repositories.applyDefault()
+}
+
+subprojects {
+    apply {
+        plugin(gradlePlugins.Plugins.DETEKT)
+        plugin(gradlePlugins.Plugins.KTLINT)
+    }
+
+    detekt {
+        config = rootProject.files("config/detekt/detekt.yml")
+        reports {
+            html {
+                enabled = true
+                destination = file("build/reports/detekt.html")
+            }
+        }
+    }
+
+    ktlint {
+        debug.set(false)
+        verbose.set(true)
+        android.set(false)
+        outputToConsole.set(true)
+        ignoreFailures.set(false)
+        enableExperimentalRules.set(true)
+        filter {
+            exclude("**/generated/**")
+            include("**/kotlin/**")
+        }
+    }
 }
 
 tasks.register("clean", Delete::class) {
