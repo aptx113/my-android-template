@@ -5,8 +5,6 @@ import dependencyVersions.AndroidTestDependencyVersions.TEST_EXT_VERSION
 import dependencyVersions.DependencyVersions.NAV_VERSION
 
 /**
- * Created by George Yu on 2021/3/10.
- *
  * All the Project Android Test dependencies are declared here.
  * These can be used across the Project
  */

@@ -9,9 +9,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath(dependencyLibs.AndroidGradle.GRADLE)
         classpath(dependencyLibs.Hilt.HILT_GRADLE)
-        classpath(dependencyLibs.Kotlin.KOTLIN_GRADLE)
         classpath(dependencyLibs.Navigation.SAFE_ARGS_GRADLE)
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -35,11 +33,11 @@ subprojects {
     }
 
     detekt {
-        config = rootProject.files("config/detekt/detekt.yml")
+        config = rootProject.files("$rootDir/.detekt/config.yml")
         reports {
             html {
                 enabled = true
-                destination = file("build/reports/detekt.html")
+                destination = file("build/reports/detekt/report.html")
             }
         }
     }

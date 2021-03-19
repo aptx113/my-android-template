@@ -3,8 +3,6 @@ package ext
 import org.gradle.api.artifacts.dsl.DependencyHandler
 
 /**
- * Created by George Yu on 2021/3/14.
- *
  * util functions for adding the different type dependencies from build.gradle file
  */
 fun DependencyHandler.addKapt(dependencies: List<String>) {
