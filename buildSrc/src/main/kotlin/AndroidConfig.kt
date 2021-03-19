@@ -1,6 +1,4 @@
 /**
- * Created by George Yu on 2021/3/7.
- *
  * Android Configuration Info
  */
 object AndroidConfig {
