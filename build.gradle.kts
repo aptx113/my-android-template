@@ -20,6 +20,7 @@ plugins {
     id(gradlePlugins.Plugins.GRADLE_VERSIONS_PLUGIN) version PluginVersions.GRADLE_VER_PLUGIN_VERSION
     id(gradlePlugins.Plugins.DETEKT) version PluginVersions.DETEKT_VERSION
     id(gradlePlugins.Plugins.KTLINT) version PluginVersions.KTLINT_VERSION
+    id(gradlePlugins.Plugins.SPOTLESS) version PluginVersions.SPOTLESS_VERSION
 }
 
 allprojects {
@@ -54,10 +55,6 @@ subprojects {
             include("**/kotlin/**")
         }
     }
-}
-
-tasks.register("clean", Delete::class) {
-    delete(rootProject.buildDir)
 }
 
 tasks.withType<DependencyUpdatesTask> {
