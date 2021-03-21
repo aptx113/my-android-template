@@ -1,3 +1,18 @@
+/*
+ * Copyright 2021 Dante Yu
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 import ext.applyDefault
 
@@ -17,19 +32,18 @@ buildscript {
 }
 
 plugins {
-    id(gradlePlugins.Plugins.GRADLE_VERSIONS_PLUGIN) version PluginVersions.GRADLE_VER_PLUGIN_VERSION
-    id(gradlePlugins.Plugins.DETEKT) version PluginVersions.DETEKT_VERSION
-    id(gradlePlugins.Plugins.KTLINT) version PluginVersions.KTLINT_VERSION
+    id(Plugins.GRADLE_VERSIONS_PLUGIN) version PluginVersions.GRADLE_VER_PLUGIN_VERSION
+    id(Plugins.DETEKT) version PluginVersions.DETEKT_VERSION
+    id(Plugins.KTLINT) version PluginVersions.KTLINT_VERSION
 }
 
 allprojects {
     repositories.applyDefault()
-}
 
-subprojects {
     apply {
-        plugin(gradlePlugins.Plugins.DETEKT)
-        plugin(gradlePlugins.Plugins.KTLINT)
+        plugin(Plugins.DETEKT)
+        plugin(Plugins.KTLINT)
+        plugin(Plugins.SPOTLESS)
     }
 
     detekt {
@@ -54,10 +68,6 @@ subprojects {
             include("**/kotlin/**")
         }
     }
-}
-
-tasks.register("clean", Delete::class) {
-    delete(rootProject.buildDir)
 }
 
 tasks.withType<DependencyUpdatesTask> {
