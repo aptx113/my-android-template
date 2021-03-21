@@ -1,3 +1,3 @@
 plugins {
-    id(gradlePlugins.Plugins.COMMON_ANDROID_LIBRARY)
+    id(Plugins.COMMON_ANDROID_LIBRARY)
 }
