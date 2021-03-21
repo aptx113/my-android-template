@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Dante
+ * Copyright 2021 Dante Yu
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -35,7 +35,6 @@ plugins {
     id(Plugins.GRADLE_VERSIONS_PLUGIN) version PluginVersions.GRADLE_VER_PLUGIN_VERSION
     id(Plugins.DETEKT) version PluginVersions.DETEKT_VERSION
     id(Plugins.KTLINT) version PluginVersions.KTLINT_VERSION
-    id(Plugins.SPOTLESS) version PluginVersions.SPOTLESS_VERSION
 }
 
 allprojects {
@@ -67,82 +66,6 @@ allprojects {
         filter {
             exclude("**/generated/**")
             include("**/kotlin/**")
-        }
-    }
-
-    @Suppress("INACCESSIBLE_TYPE")
-    spotless {
-        format("misc") {
-            target(
-                fileTree(
-                    mapOf(
-                        "dir" to ".",
-                        "include" to listOf("**/*.md", "**/.gitignore", "**/*.yaml", "**/*.yml"),
-                        "exclude" to listOf(
-                            ".gradle/**",
-                            ".gradle-cache/**",
-                            "**/tools/**",
-                            "**/build/**"
-                        )
-                    )
-                )
-            )
-            trimTrailingWhitespace()
-            indentWithSpaces()
-            endWithNewline()
-        }
-
-        format("xml") {
-            target(
-                fileTree(
-                    mapOf(
-                        "dir" to ".",
-                        "include" to listOf("**/res/**/*.xml"),
-                        "exclude" to listOf("**/build/**/*.xml")
-                    )
-                )
-            )
-            indentWithSpaces(4)
-            trimTrailingWhitespace()
-            endWithNewline()
-        }
-
-        kotlin {
-            target(
-                fileTree(
-                    mapOf(
-                        "dir" to ".",
-                        "include" to listOf("**/*.kt"),
-                        "exclude" to listOf("**/build/**", "**/buildSrc/**", "**/.*")
-                    )
-                )
-            )
-            licenseHeaderFile(
-                rootProject.file(".spotless/copyright.kt"),
-                "^(package|object|import|interface)"
-            )
-            trimTrailingWhitespace()
-            indentWithSpaces()
-            endWithNewline()
-        }
-
-        kotlinGradle {
-            target(
-                fileTree(
-                    mapOf(
-                        "dir" to ".",
-                        "include" to listOf("**/*.gradle.kts", "*.gradle.kts"),
-                        "exclude" to listOf("**/build/**")
-                    )
-                )
-            )
-            licenseHeaderFile(
-                rootProject.file(".spotless/copyright.kt"),
-                "package|import|tasks|apply|plugins|pluginManagement|include|val|object|interface"
-            )
-            trimTrailingWhitespace()
-            indentWithSpaces()
-            endWithNewline()
         }
     }
 }
