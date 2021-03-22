@@ -33,6 +33,7 @@ buildscript {
 
 plugins {
     id(Plugins.DETEKT) version PluginVersions.DETEKT_VERSION
+    id(Plugins.DOKKA) version PluginVersions.DOKKA_VERSION
     id(Plugins.GIT_HOOKS)
     id(Plugins.GRADLE_VERSIONS_PLUGIN) version PluginVersions.GRADLE_VER_PLUGIN_VERSION
     id(Plugins.KTLINT) version PluginVersions.KTLINT_VERSION
@@ -42,6 +43,7 @@ allprojects {
     repositories.applyDefault()
 
     apply {
+        plugin(Plugins.DOKKA)
         plugin(Plugins.DETEKT)
         plugin(Plugins.KTLINT)
         plugin(Plugins.SPOTLESS)
