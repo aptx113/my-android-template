@@ -6,8 +6,6 @@ import java.util.*
 private const val LOCAL_PROPERTIES_FILE_NAME = "local.properties"
 
 /**
- * Created by George Yu on 2021/3/14.
- *
  * Util to obtain property declared on `$projectRoot/local.properties` file.
  *
  * @param propertyName the name of declared property
