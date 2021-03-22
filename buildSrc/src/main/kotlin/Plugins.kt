@@ -11,15 +11,16 @@ object Plugins {
     const val COMMON_KOTLIN_LIBRARY = "commons.kotlin-library"
     const val JAVA_LIBRARY = "java-library"
 
-    const val KOTLIN = "kotlin"
     const val HILT_ANDROID = "dagger.hilt.android.plugin"
+    const val KOTLIN = "kotlin"
     const val KOTLIN_ANDROID = "android"
     const val KOTLIN_KAPT = "kapt"
     const val NAV_SAFEARGS = "androidx.navigation.safeargs.kotlin"
 
+    const val DETEKT = "io.gitlab.arturbosch.detekt"
+    const val DOKKA = "org.jetbrains.dokka"
     const val GIT_HOOKS = "gradlePlugins.git-hooks"
     const val GRADLE_VERSIONS_PLUGIN = "com.github.ben-manes.versions"
     const val KTLINT = "org.jlleitschuh.gradle.ktlint"
-    const val DETEKT = "io.gitlab.arturbosch.detekt"
     const val SPOTLESS = "gradlePlugins.spotless"
 }
