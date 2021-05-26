@@ -20,7 +20,6 @@ import ext.applyDefault
 buildscript {
     repositories {
         google()
-        jcenter()
         mavenCentral()
     }
     dependencies {

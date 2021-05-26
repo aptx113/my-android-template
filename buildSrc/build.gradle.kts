@@ -24,12 +24,11 @@ kotlinDslPluginOptions {
 repositories {
     google()
     gradlePluginPortal()
-    jcenter()
     mavenCentral()
 }
 
 dependencies {
-    implementation("com.android.tools.build:gradle:4.1.3")
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.31")
+    implementation("com.android.tools.build:gradle:4.2.1")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.32")
     implementation("com.diffplug.spotless:spotless-plugin-gradle:5.11.0")
 }

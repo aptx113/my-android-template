@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import dependencyLibs.AndroidTestDependencies.androidTestLibraries
+import dependencyLibs.AndroidTestLibraries.androidTestLibraries
 import dependencyLibs.Libraries.kaptLibraries
 import dependencyLibs.Libraries.libraries
-import dependencyLibs.TestDependencies.testLibraries
+import dependencyLibs.TestLibraries.testLibraries
 import ext.addAndroidTestDependencies
 import ext.addDependencies
 import ext.addKapt
@@ -26,13 +26,13 @@ plugins {
     id(Plugins.ANDROID_APPLICATION)
     kotlin(Plugins.KOTLIN_ANDROID)
     kotlin(Plugins.KOTLIN_KAPT)
+    id(Plugins.KOTLIN_PARCELIZE)
     id(Plugins.HILT_ANDROID)
     id(Plugins.NAV_SAFEARGS)
 }
 
 android {
     compileSdkVersion(AndroidConfig.COMPILE_SDK_VERSION)
-    buildToolsVersion(AndroidConfig.BUILD_TOOLS_VERSION)
 
     defaultConfig {
         applicationId = AndroidConfig.APPLICATION_ID
@@ -88,6 +88,11 @@ android {
     packagingOptions {
         exclude("META-INF/metadata.kotlin_module")
         exclude("META-INF/metadata.jvm.kotlin_module")
+        exclude("META-INF/kotlinx-metadata-jvm.kotlin_module")
+        exclude("META-INF/elements.kotlin_module")
+        exclude("META-INF/kotlinx-metadata.kotlin_module")
+        exclude("META-INF/core.kotlin_module")
+        exclude("META-INF/specs.kotlin_module")
     }
 
     sourceSets {
@@ -105,6 +110,7 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    debugImplementation(dependencyLibs.Fragment.FRAG_TEST)
     addDependencies(libraries)
     addKapt(kaptLibraries)
     addTestDependencies(testLibraries)
