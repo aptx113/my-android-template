@@ -15,14 +15,20 @@
  */
 package commons
 
+import AndroidConfig
 import BuildFeatures
+import BuildModules
+import BuildProductDimensions
 import BuildType
-import dependencyLibs.AndroidTestDependencies
+import BuildTypeDebug
+import BuildTypeRelease
+import ProductFlavorDevelop
+import ProductFlavorProduction
+import ProductFlavorQA
+import dependencyLibs.Espresso
+import dependencyLibs.Junit
 import dependencyLibs.Kotlin
-import dependencyLibs.TestDependencies
-import gradle.kotlin.dsl.accessors._c1423b320eb21bea40af7b76d5a93e57.androidTestImplementation
-import gradle.kotlin.dsl.accessors._c1423b320eb21bea40af7b76d5a93e57.implementation
-import gradle.kotlin.dsl.accessors._c1423b320eb21bea40af7b76d5a93e57.testImplementation
+import dependencyLibs.TestEx
 
 plugins {
     id("com.android.dynamic-feature")
@@ -45,7 +51,6 @@ android {
 
     buildFeatures.apply {
         dataBinding.isEnabled = BuildFeatures.DATA_BINDING_ENABLED
-
     }
 
     buildTypes {
@@ -109,8 +114,8 @@ dependencies {
 
     implementation(Kotlin.stdlib)
 
-    testImplementation(TestDependencies.JUNIT)
+    testImplementation(Junit.JUNIT)
 
-    androidTestImplementation(AndroidTestDependencies.ESPRESSO_CORE)
-    androidTestImplementation(AndroidTestDependencies.TEST_EXT_JUNIT)
+    androidTestImplementation(Espresso.CORE)
+    androidTestImplementation(TestEx.JUNIT)
 }

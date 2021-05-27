@@ -15,10 +15,19 @@
  */
 package commons
 
+import AndroidConfig
+import BuildFeatures
+import BuildProductDimensions
 import BuildType
+import BuildTypeDebug
+import BuildTypeRelease
+import ProductFlavorDevelop
+import ProductFlavorProduction
+import ProductFlavorQA
+import dependencyLibs.Espresso
+import dependencyLibs.Junit
 import dependencyLibs.Kotlin
-import dependencyLibs.TestDependencies
-import dependencyLibs.AndroidTestDependencies
+import dependencyLibs.TestEx
 
 plugins {
     id("com.android.library")
@@ -27,7 +36,6 @@ plugins {
 
 android {
     compileSdkVersion(AndroidConfig.COMPILE_SDK_VERSION)
-    buildToolsVersion(AndroidConfig.BUILD_TOOLS_VERSION)
 
     defaultConfig {
         minSdkVersion(AndroidConfig.MIN_SDK_VERSION)
@@ -101,9 +109,9 @@ android {
     dependencies {
         implementation(Kotlin.stdlib)
 
-        testImplementation(TestDependencies.JUNIT)
+        testImplementation(Junit.JUNIT)
 
-        androidTestImplementation(AndroidTestDependencies.ESPRESSO_CORE)
-        androidTestImplementation(AndroidTestDependencies.TEST_EXT_JUNIT)
+        androidTestImplementation(Espresso.CORE)
+        androidTestImplementation(TestEx.JUNIT)
     }
 }

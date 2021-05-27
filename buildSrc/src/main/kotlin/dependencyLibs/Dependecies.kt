@@ -1,5 +1,6 @@
 package dependencyLibs
 
+import dependencyVersions.DependencyVersions
 import dependencyVersions.DependencyVersions.ACTIVITY_VERSION
 import dependencyVersions.DependencyVersions.APPCOMPAT_VERSION
 import dependencyVersions.DependencyVersions.COIL_VERSION
@@ -18,6 +19,7 @@ import dependencyVersions.DependencyVersions.PAGING_VERSION
 import dependencyVersions.DependencyVersions.RECYCLERVIEW_VERSION
 import dependencyVersions.DependencyVersions.RETROFIT2_VERSION
 import dependencyVersions.DependencyVersions.ROOM_VERSION
+import dependencyVersions.DependencyVersions.TEST_VERSION
 import dependencyVersions.DependencyVersions.TIMBER_VERSION
 import dependencyVersions.DependencyVersions.VIEWPAGER2_VERSION
 
@@ -51,16 +53,26 @@ object Coroutines {
         COROUTINES_VERSION
     }"
     const val CORE = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${COROUTINES_VERSION}"
+    const val TESTING = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${COROUTINES_VERSION}"
+}
+
+object DataStore {
+    const val PREFS_DATASTORE =
+        "androidx.datastore:datastore-preferences:${DependencyVersions.DATASTORE_VERSION}"
 }
 
 object Fragment {
     const val FRAG_KTX = "androidx.fragment:fragment-ktx:${FRAG_VERSION}"
+    const val FRAG_TEST = "androidx.fragment:fragment-testing:${FRAG_VERSION}"
 }
 
 object Hilt {
     const val ANDROID = "com.google.dagger:hilt-android:${HILT_VERSION}"
     const val COMPILER = "com.google.dagger:hilt-compiler:${HILT_VERSION}"
     const val HILT_GRADLE = "com.google.dagger:hilt-android-gradle-plugin:${HILT_VERSION}"
+    const val TESTING = "com.google.dagger:hilt-android-testing:${HILT_VERSION}"
+    const val KAPT_TEST = "com.google.dagger:hilt-android-compiler:${HILT_VERSION}"
+
 }
 
 object Kotlin {
@@ -85,10 +97,11 @@ object Moshi {
 }
 
 object Navigation {
-    const val FRAG = "androidx.navigation:navigation-fragment:${NAV_VERSION}"
-    const val UI = "androidx.navigation:navigation-ui:${NAV_VERSION}"
+    const val FRAG = "androidx.navigation:navigation-fragment-ktx:${NAV_VERSION}"
+    const val UI = "androidx.navigation:navigation-ui-ktx:${NAV_VERSION}"
     const val SAFE_ARGS_GRADLE =
         "androidx.navigation:navigation-safe-args-gradle-plugin:${NAV_VERSION}"
+    const val NAV_TESTING = "androidx.navigation:navigation-testing:${NAV_VERSION}"
 }
 
 object OkHttp3 {
@@ -112,6 +125,11 @@ object Room {
     const val RUNTIME = "androidx.room:room-runtime:${ROOM_VERSION}"
     const val COMPILER = "androidx.room:room-compiler:${ROOM_VERSION}"
     const val KTX = "androidx.room:room-ktx:${ROOM_VERSION}"
+    const val TESTING = "androidx.room:room-testing:${ROOM_VERSION}"
+}
+
+object Test {
+    const val CORE = "androidx.test:core:${TEST_VERSION}"
 }
 
 object Timber {
@@ -131,6 +149,7 @@ object Libraries {
         add(Core.CORE_KTX)
         add(Coroutines.ANDROID)
         add(Coroutines.CORE)
+        add(DataStore.PREFS_DATASTORE)
         add(Fragment.FRAG_KTX)
         add(Hilt.ANDROID)
         add(Kotlin.stdlib)
@@ -149,6 +168,7 @@ object Libraries {
         add(Retrofit2.RETROFIT)
         add(Room.KTX)
         add(Room.RUNTIME)
+        add(Test.CORE)
         add(Timber.TIMBER)
         add(ViewPager2.VIEWPAGER2)
     }
