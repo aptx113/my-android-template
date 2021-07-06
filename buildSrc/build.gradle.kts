@@ -17,10 +17,6 @@ plugins {
     `kotlin-dsl`
 }
 
-kotlinDslPluginOptions {
-    experimentalWarning.set(false)
-}
-
 repositories {
     google()
     gradlePluginPortal()
@@ -28,7 +24,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.android.tools.build:gradle:4.2.1")
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.32")
+    implementation("com.android.tools.build:gradle:4.2.2")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.10")
     implementation("com.diffplug.spotless:spotless-plugin-gradle:5.11.0")
 }
