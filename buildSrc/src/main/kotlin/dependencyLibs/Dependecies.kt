@@ -78,6 +78,7 @@ object Hilt {
 object Kotlin {
     const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib:${KOTLIN_VERSION}"
     const val KOTLIN_GRADLE = "org.jetbrains.kotlin:kotlin-gradle-plugin:${KOTLIN_VERSION}"
+    const val REFLECT = "org.jetbrains.kotlin:kotlin-reflect:${KOTLIN_VERSION}"
 }
 
 object Lifecycle {
@@ -85,6 +86,7 @@ object Lifecycle {
     const val LIVEDATE = "androidx.lifecycle:lifecycle-livedata-ktx:${LIFECYCLE_VERSION}"
     const val VIEWMODEL_SAVEDSTATE =
         "androidx.lifecycle:lifecycle-viewmodel-savedstate:${LIFECYCLE_VERSION}"
+    const val RUNTIME = "androidx.lifecycle:lifecycle-runtime:${LIFECYCLE_VERSION}"
 }
 
 object Material {
@@ -106,6 +108,7 @@ object Navigation {
 
 object OkHttp3 {
     const val LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:${OKHTTP3_VERSION}"
+    const val MOCKWEBSERVER = "com.squareup.okhttp3:mockwebserver:${OKHTTP3_VERSION}"
 }
 
 object Paging {
@@ -150,9 +153,12 @@ object Libraries {
         add(Coroutines.ANDROID)
         add(Coroutines.CORE)
         add(DataStore.PREFS_DATASTORE)
+        add(Espresso.IDLING)
         add(Fragment.FRAG_KTX)
         add(Hilt.ANDROID)
+        add(Kotlin.REFLECT)
         add(Kotlin.stdlib)
+        add(Lifecycle.RUNTIME)
         add(Lifecycle.LIVEDATE)
         add(Lifecycle.VIEWMODEL)
         add(Lifecycle.VIEWMODEL_SAVEDSTATE)

@@ -2,7 +2,7 @@ package dependencyVersions
 
 
 object AndroidTestDependencyVersions {
-    const val ESPRESSO_VERSION = "3.3.0"
-    const val TEST_EXT_VERSION = "1.3.0"
-    const val TEST_EXT_JUNIT_VERSION = "1.1.2"
+    const val ESPRESSO_VERSION = "3.4.0"
+    const val TEST_EXT_VERSION = "1.4.0"
+    const val TEST_EXT_JUNIT_VERSION = "1.1.3"
 }
