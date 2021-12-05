@@ -53,7 +53,6 @@ captures/
 .idea/dictionaries
 .idea/libraries
 .idea/caches
-.idea/
 
 # Keystore files
 *.keystore
@@ -93,3 +92,7 @@ lint/tmp/
 
 # Fabric
 Fabric.properties
+
+#idea folder
+.idea/
+**/.idea
