@@ -25,6 +25,7 @@ buildscript {
     dependencies {
         classpath(dependencyLibs.Hilt.HILT_GRADLE)
         classpath(dependencyLibs.Navigation.SAFE_ARGS_GRADLE)
+        classpath("com.android.tools.build:gradle:7.4.2")
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

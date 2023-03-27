@@ -6,6 +6,7 @@ package gradlePlugins
  *
  * @see gradlePlugins.Spotless_gradle
  */
+public
 class SpotlessPlugin : org.gradle.api.Plugin<org.gradle.api.Project> {
     override fun apply(target: org.gradle.api.Project) {
         try {
