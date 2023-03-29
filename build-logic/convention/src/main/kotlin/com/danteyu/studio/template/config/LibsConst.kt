@@ -7,6 +7,7 @@ object LibsConst {
     const val ANDROID_TEST_IMPLEMENTATION = "androidTestImplementation"
     const val KAPT = "kapt"
     const val KAPT_ANDROID_TEST = "kaptAndroidTest"
+    const val KSP = "ksp"
     const val TEST = "test"
 
     const val ANDROID_DESUGAR_JDK_LIBS = "android.desugarJdkLibs"

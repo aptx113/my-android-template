@@ -10,5 +10,6 @@ object PluginsConst {
     const val HILT_PLUGIN_ID = "dagger.hilt.android.plugin"
     const val JACOCO_ID = "org.gradle.jacoco"
     const val KAPT_PLUGIN_ID = "org.jetbrains.kotlin.kapt"
+    const val KOTLIN_ANDROID_ID = "org.jetbrains.kotlin.android"
     const val KSP_PLUGIN_ID = "com.google.devtools.ksp"
 }
