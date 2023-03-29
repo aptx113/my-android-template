@@ -12,4 +12,5 @@ object PluginsConst {
     const val KAPT_PLUGIN_ID = "org.jetbrains.kotlin.kapt"
     const val KOTLIN_ANDROID_ID = "org.jetbrains.kotlin.android"
     const val KSP_PLUGIN_ID = "com.google.devtools.ksp"
+    const val NAVIGATION_SAFE_ARGS_PLUGIN_ID = "androidx.navigation.safeargs.kotlin"
 }
