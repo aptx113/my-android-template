@@ -16,7 +16,7 @@ class AndroidApplicationFirebaseConventionPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {
-                apply(PluginsConst.GOOGLE_SERVICES_ID)
+//                apply(PluginsConst.GOOGLE_SERVICES_ID)
                 apply(PluginsConst.FIREBASE_PERFORMANCE_ID)
                 apply(PluginsConst.FIREBASE_CRASHLYTICS_ID)
             }
