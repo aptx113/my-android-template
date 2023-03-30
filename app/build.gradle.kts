@@ -1,122 +1,164 @@
-/*
- * Copyright 2021 Dante Yu
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-import dependencyLibs.AndroidTestLibraries.androidTestLibraries
-import dependencyLibs.Libraries.kaptLibraries
-import dependencyLibs.Libraries.libraries
-import dependencyLibs.TestLibraries.testLibraries
-import ext.addAndroidTestDependencies
-import ext.addDependencies
-import ext.addKapt
-import ext.addTestDependencies
+import com.danteyu.studio.template.AppBuildType
+import com.danteyu.studio.template.config.DefaultConfigs
+import com.google.protobuf.gradle.builtins
+import com.google.protobuf.gradle.generateProtoTasks
+import com.google.protobuf.gradle.protobuf
+import com.google.protobuf.gradle.protoc
 
 plugins {
-    id(Plugins.ANDROID_APPLICATION)
-    kotlin(Plugins.KOTLIN_ANDROID)
-    kotlin(Plugins.KOTLIN_KAPT)
-    id(Plugins.KOTLIN_PARCELIZE)
-    id(Plugins.HILT_ANDROID)
-    id(Plugins.NAV_SAFEARGS)
+    id("app.android.application")
+    id("app.android.application.compose")
+    id("app.android.application.flavors")
+    id("app.android.application.jacoco")
+    id("app.android.hilt")
+    id("jacoco")
+    id("app.android.application.firebase")
+    id("app.android.application.navigation")
+    id("app.android.application.databinding")
+    id("app.android.room")
+    id("com.google.protobuf")
 }
 
 android {
-    compileSdkVersion(AndroidConfig.COMPILE_SDK_VERSION)
-
     defaultConfig {
-        applicationId = AndroidConfig.APPLICATION_ID
-        minSdkVersion(AndroidConfig.MIN_SDK_VERSION)
-        targetSdkVersion(AndroidConfig.TARGET_SDK_VERSION)
-
-        versionCode = AndroidConfig.VERSION_CODE
-        versionName = AndroidConfig.VERSION_NAME
-
-        testInstrumentationRunner = AndroidConfig.TEST_INSTRUMENTATION_RUNNER
-    }
-
-    buildFeatures {
-        dataBinding = BuildFeatures.DATA_BINDING_ENABLED
+        applicationId = DefaultConfigs.APPLICATION_ID
+        versionCode = DefaultConfigs.VERSION_CODE
+        versionName = DefaultConfigs.VERSION_NAME
+        testInstrumentationRunner = DefaultConfigs.TEST_INSTRUMENTATION_RUNNER
+        vectorDrawables {
+            useSupportLibrary = true
+        }
     }
 
     buildTypes {
-        getByName(BuildType.RELEASE) {
-            proguardFiles("proguard-android-optimize.txt", "proguard-rules.pro")
-
-            isMinifyEnabled = BuildTypeRelease.isMinifyEnabled
-            isTestCoverageEnabled = BuildTypeRelease.isTestCoverageEnabled
+        val debug by getting {
+            applicationIdSuffix = AppBuildType.Debug.applicationIdSuffix
         }
-
-        getByName(BuildType.DEBUG) {
-            applicationIdSuffix = BuildTypeDebug.APPLICATION_ID_SUFFIX
-            versionNameSuffix = BuildTypeDebug.VERSION_NAME_SUFFIX
-            isMinifyEnabled = BuildTypeDebug.isMinifyEnabled
-            isTestCoverageEnabled = BuildTypeDebug.isTestCoverageEnabled
+        val release by getting {
+            isMinifyEnabled = true
+            applicationIdSuffix = AppBuildType.Release.applicationIdSuffix
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
-
-    flavorDimensions(BuildProductDimensions.ENVIRONMENT)
-    productFlavors {
-        ProductFlavorDevelop.appCreate(this)
-        ProductFlavorQA.appCreate(this)
-        ProductFlavorProduction.appCreate(this)
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
-    }
-
-    lintOptions {
-        lintConfig = rootProject.file(".lint/config.xml")
-    }
-
     packagingOptions {
-        exclude("META-INF/metadata.kotlin_module")
-        exclude("META-INF/metadata.jvm.kotlin_module")
-        exclude("META-INF/kotlinx-metadata-jvm.kotlin_module")
-        exclude("META-INF/elements.kotlin_module")
-        exclude("META-INF/kotlinx-metadata.kotlin_module")
-        exclude("META-INF/core.kotlin_module")
-        exclude("META-INF/specs.kotlin_module")
+        resources {
+            excludes.add("/META-INF/{AL2.0,LGPL2.1}")
+        }
     }
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
+    namespace = DefaultConfigs.NAME_SPACE
+}
 
-    sourceSets {
-        val sharedTestDir = "src/sharedTest/java"
-        getByName("main") {
-            java.srcDir("src/main/kotlin")
-        }
-        getByName("test") {
-            java.srcDir("src/test/kotlin")
-            java.srcDir(sharedTestDir)
-        }
-        getByName("androidTest") {
-            java.srcDir("src/androidTest/kotlin")
-            java.srcDir(sharedTestDir)
+protobuf {
+    protoc {
+        artifact = libs.protobuf.protoc.get().toString()
+    }
+    generateProtoTasks {
+        all().forEach { task ->
+            task.builtins {
+                val java by registering {
+                    option("lite")
+                }
+                val kotlin by registering {
+                    option("lite")
+                }
+            }
         }
     }
 }
 
 dependencies {
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    debugImplementation(dependencyLibs.Fragment.FRAG_TEST)
-    kaptAndroidTest(dependencyLibs.Hilt.KAPT_TEST)
-    addDependencies(libraries)
-    addKapt(kaptLibraries)
-    addTestDependencies(testLibraries)
-    addAndroidTestDependencies(androidTestLibraries)
+    // Activity
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.activity.ktx)
+
+    implementation(libs.androidx.appcompat)
+    // Compose
+    implementation(libs.androidx.compose.material.iconsExtended)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material3.windowSizeClass)
+    implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.compose.runtime.tracing)
+    androidTestImplementation(libs.androidx.compose.ui.test)
+    debugImplementation(libs.androidx.compose.ui.testManifest)
+    debugImplementation(libs.androidx.compose.ui.tooling)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.ui.util)
+
+    implementation(libs.androidx.constaintlayout)
+    // Core
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.core.splashscreen)
+    // DataStore
+    implementation(libs.androidx.dataStore.core)
+    implementation(libs.androidx.dataStore.preferences)
+    // Fragment
+    implementation(libs.androidx.fragment.fragment)
+    debugImplementation(libs.androidx.fragment.testing)
+    // Lifecycle
+    implementation(libs.androidx.lifecycle.runtimeCompose)
+    implementation(libs.androidx.lifecycle.viewModelCompose)
+    implementation(libs.androidx.lifecycle.viewModel.ktx)
+    // Navigation
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.navigation.fragment)
+    androidTestImplementation(libs.androidx.navigation.testing)
+    implementation(libs.androidx.navigation.ui)
+
+    implementation(libs.androidx.paging)
+
+    implementation(libs.androidx.recyclerview)
+
+    implementation(libs.androidx.startup)
+    // Test
+    androidTestImplementation(libs.androidx.test.core)
+    androidTestImplementation(libs.androidx.test.espresso.core)
+    androidTestImplementation(libs.androidx.test.ext)
+    androidTestImplementation(libs.androidx.test.ext.truth)
+    androidTestImplementation(libs.androidx.test.rules)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.androidx.test.uiautomator)
+    // Work
+    implementation(libs.androidx.work.ktx)
+    androidTestImplementation(libs.androidx.work.testing)
+    // Coil
+    implementation(libs.coil.kt.bom)
+    implementation(libs.coil.kt)
+    implementation(libs.coil.kt.compose)
+    implementation(libs.coil.kt.svg)
+    // Hilt ext
+    kapt(libs.hilt.ext.compiler)
+    implementation(libs.hilt.ext.work)
+    // Kotlin
+    implementation(libs.kotlinx.coroutines.android)
+    testImplementation(libs.kotlinx.coroutines.test)
+    implementation(libs.kotlinx.datetime)
+    implementation(libs.kotlinx.serialization.json)
+
+    implementation(libs.material)
+
+    implementation(libs.okhttp.logging)
+
+    implementation(libs.protobuf.kotlin.lite)
+
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.kotlin.serialization)
+
+    testImplementation(libs.truth)
+
+    testImplementation(libs.turbine)
+
+    implementation(libs.xLog)
+}
+
+kapt {
+    correctErrorTypes = true
 }

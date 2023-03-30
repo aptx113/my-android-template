@@ -14,15 +14,7 @@
  * limitations under the License.
  */
 pluginManagement {
-    resolutionStrategy {
-        eachPlugin {
-            when (requested.id.namespace) {
-                "com.android" -> {
-                    useModule("com.android.tools.build:gradle:${requested.version}")
-                }
-            }
-        }
-    }
+    includeBuild("build-logic")
     repositories {
         gradlePluginPortal()
         google()
@@ -30,5 +22,13 @@ pluginManagement {
     }
 }
 
-include(":app")
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
 rootProject.name = "my-android-template"
+include(":app")
