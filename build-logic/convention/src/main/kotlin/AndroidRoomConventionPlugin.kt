@@ -21,9 +21,9 @@ class AndroidRoomConventionPlugin : Plugin<Project> {
         with(target) {
             pluginManager.apply(PluginsConst.KSP_PLUGIN_ID)
 
-            extensions.configure<KspExtension> {
-                arg(RoomSchemaArgProvider(File(projectDir,"schemas")))
-            }
+//            extensions.configure<KspExtension> {
+//                arg(RoomSchemaArgProvider(File(projectDir,"schemas")))
+//            }
 
             val libs = extensions.getByType<VersionCatalogsExtension>().named(LIBS)
             dependencies {
