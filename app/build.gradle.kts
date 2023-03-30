@@ -16,7 +16,7 @@ plugins {
     id("app.android.application.navigation")
     id("app.android.application.databinding")
     id("app.android.room")
-    alias(libs.plugins.protobuf)
+    id("com.google.protobuf")
 }
 
 android {
@@ -64,6 +64,9 @@ protobuf {
     generateProtoTasks {
         all().forEach { task ->
             task.builtins {
+                val java by registering {
+                    option("lite")
+                }
                 val kotlin by registering {
                     option("lite")
                 }
