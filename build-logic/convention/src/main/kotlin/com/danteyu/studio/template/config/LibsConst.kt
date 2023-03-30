@@ -22,7 +22,6 @@ object LibsConst {
     const val HILt_COMPILER = "hilt.compiler"
 
     const val JUNIT4 = "junit4"
-    const val KOTLIN_ANDROID = "org.jetbrains.kotlin.android"
 
     const val ROOM_COMPILER = "room.compiler"
     const val ROOM_KTX = "room.ktx"
